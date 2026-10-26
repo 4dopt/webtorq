@@ -835,9 +835,9 @@ function initMobileMenu() {
     }
   });
 
-  // Close when clicking nav items
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  // Close when clicking nav links or buttons
+  mobileMenu.querySelectorAll('a, button').forEach(item => {
+    item.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
     });
   });
