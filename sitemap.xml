@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Main Landing Page -->
+  <url>
+    <loc>https://webtorq.com/</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Transformation Showcase / Before & After -->
+  <url>
+    <loc>https://webtorq.com/#comparison</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Verified Client Case Studies -->
+  <url>
+    <loc>https://webtorq.com/#case-studies</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pricing Plans -->
+  <url>
+    <loc>https://webtorq.com/#pricing</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Services & Bento Grid -->
+  <url>
+    <loc>https://webtorq.com/#services</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Interactive 60-Second Website Audit Tool -->
+  <url>
+    <loc>https://webtorq.com/#audit</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Agency Cost & ROI Savings Calculator -->
+  <url>
+    <loc>https://webtorq.com/#calculator</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Frequently Asked Questions -->
+  <url>
+    <loc>https://webtorq.com/#faq</loc>
+    <lastmod>2026-10-26T21:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>
