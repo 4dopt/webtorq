@@ -277,23 +277,23 @@
 
   <!-- Top Urgent Scarcity Ribbon (Google & Meta Ad Optimized) -->
   <aside aria-label="Announcement" class="bg-gradient-to-r from-blue-900 via-slate-900 to-blue-950 text-white text-xs py-2 px-4 font-medium border-b border-blue-900/50 text-center shadow-xs">
-    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
-      <span class="scarcity-pulse"></span>
-      <span class="bg-blue-800/80 text-blue-200 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">High Demand</span>
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-center flex-wrap sm:flex-nowrap">
+      <span class="scarcity-pulse shrink-0"></span>
+      <span class="bg-blue-800/80 text-blue-200 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider shrink-0">High Demand</span>
       <span class="font-bold">Only 2 of 5 Client Onboarding Slots Open For This Month.</span>
-      <span class="text-slate-300 hidden sm:inline">&bull; $0 Upfront Deposit &bull; 14-Day 100% Money-Back Guarantee.</span>
-      <button data-plan="Growth & Redesign ($189/mo)" class="open-modal-btn font-extrabold underline underline-offset-2 hover:text-blue-300 ml-1 inline-flex items-center gap-1">
-        <span>Reserve Your Slot &rarr;</span>
+      <span class="text-slate-300 hidden md:inline">&bull; $0 Upfront Deposit &bull; 14-Day 100% Money-Back Guarantee.</span>
+      <button data-plan="Growth & Redesign ($189/mo)" class="open-modal-btn font-extrabold underline underline-offset-2 hover:text-blue-300 ml-1 inline-flex items-center gap-1 shrink-0">
+        <span>Reserve Slot &rarr;</span>
       </button>
     </div>
   </aside>
 
-  <!-- Main Navigation Header (Clean & Uncluttered) -->
+  <!-- Main Navigation Header (Laptop & Desktop Precision-Aligned) -->
   <header class="sticky top-0 z-40 nav-header shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 group">
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
         <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white font-bold shadow-xs group-hover:bg-blue-600 transition-colors">
           <i data-lucide="zap" class="w-4 h-4 text-blue-400"></i>
         </div>
@@ -302,19 +302,19 @@
         </span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#comparison" class="hover:text-slate-900 transition-colors">Before & After</a>
-        <a href="#case-studies" class="hover:text-slate-900 transition-colors">Client Results</a>
-        <a href="#comparison-table" class="hover:text-slate-900 transition-colors">Why Subscription</a>
-        <a href="#services" class="hover:text-slate-900 transition-colors">What's Included</a>
-        <a href="#pricing" class="hover:text-slate-900 transition-colors">Pricing</a>
-        <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+      <!-- Desktop Nav (Balanced spacing for laptops) -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-600">
+        <a href="#comparison" class="hover:text-slate-900 transition-colors whitespace-nowrap">Before & After</a>
+        <a href="#case-studies" class="hover:text-slate-900 transition-colors whitespace-nowrap">Client Results</a>
+        <a href="#comparison-table" class="hover:text-slate-900 transition-colors whitespace-nowrap">Why Subscription</a>
+        <a href="#services" class="hover:text-slate-900 transition-colors whitespace-nowrap">What's Included</a>
+        <a href="#pricing" class="hover:text-slate-900 transition-colors whitespace-nowrap">Pricing</a>
+        <a href="#faq" class="hover:text-slate-900 transition-colors whitespace-nowrap">FAQ</a>
       </nav>
 
       <!-- Desktop Right Actions -->
-      <div class="hidden sm:flex items-center gap-3">
-        <button onclick="openCallBookingModal()" class="px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-1.5 border border-slate-200 rounded-lg hover:bg-slate-50">
+      <div class="hidden sm:flex items-center gap-2.5 shrink-0">
+        <button onclick="openCallBookingModal()" class="hidden xl:inline-flex px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors items-center gap-1.5 border border-slate-200 rounded-lg hover:bg-slate-50">
           <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-600"></i>
           <span>Book 15-Min Call</span>
         </button>
@@ -324,18 +324,19 @@
         </button>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+      <!-- Mobile & Tablet Menu Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
         <i data-lucide="menu" class="w-5 h-5"></i>
       </button>
 
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 bg-white px-5 py-5 space-y-3 shadow-lg">
+    <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-200 bg-white px-5 py-5 space-y-3 shadow-lg">
       <a href="#comparison" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">Before & After Makeovers</a>
       <a href="#case-studies" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">Verified Client Results</a>
       <a href="#comparison-table" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">Why Subscription vs Agency</a>
+      <a href="#services" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">What's Included</a>
       <a href="#pricing" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">Transparent Pricing</a>
       <a href="#faq" class="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1">FAQ & Guarantees</a>
       <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
@@ -352,8 +353,8 @@
   <!-- Main Content Landmark for Semantic SEO & Screen Readers -->
   <main id="main-content">
 
-  <!-- Hero Section (Laser-Engineered for Ad Conversions) -->
-  <section class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-grid-pattern bg-[#f8fafc]">
+  <!-- Hero Section (Laser-Engineered for Laptop & Desktop Optimization) -->
+  <section class="relative pt-10 pb-16 md:pt-14 md:pb-24 overflow-hidden bg-grid-pattern bg-[#f8fafc]">
     <!-- Ambient Radial Glows -->
     <div class="ambient-glow -top-32 left-1/2 -translate-x-1/2 w-[650px] h-[450px] bg-blue-500/20"></div>
     <div class="ambient-glow top-60 -left-24 w-[400px] h-[400px] bg-indigo-500/15"></div>
@@ -362,58 +363,57 @@
       
       <!-- Social Proof Trust Strip Above Headline -->
       <div class="flex justify-center mb-6">
-        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-sm text-xs text-slate-700">
-          <div class="flex -space-x-1.5 overflow-hidden">
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-xs text-slate-700 max-w-full">
+          <div class="flex -space-x-1.5 overflow-hidden shrink-0">
             <span class="inline-block h-6 w-6 rounded-full bg-slate-900 text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">MV</span>
             <span class="inline-block h-6 w-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">ER</span>
             <span class="inline-block h-6 w-6 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">JH</span>
             <span class="inline-block h-6 w-6 rounded-full bg-amber-600 text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">DC</span>
           </div>
-          <div class="flex items-center gap-1 font-bold text-slate-900">
+          <div class="flex items-center gap-1 font-bold text-slate-900 shrink-0">
             <span class="text-amber-500">★★★★★</span>
             <span>4.9/5 Rating</span>
           </div>
-          <span class="text-slate-300 hidden sm:inline">|</span>
-          <span class="text-slate-600 hidden sm:inline">Trusted by 140+ Growing Businesses &bull; Avg <strong>4.8x Lead Increase</strong></span>
+          <span class="text-slate-300 hidden sm:inline">&bull;</span>
+          <span class="text-slate-600 hidden sm:inline whitespace-nowrap">140+ Happy Businesses &bull; Avg <strong>4.8x Lead Increase</strong></span>
         </div>
       </div>
 
-      <!-- Main Headline -->
+      <!-- Main Headline (Balanced Typography with Zero Word Orphans) -->
       <div class="text-center max-w-4xl mx-auto">
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
-          Turn Your Website Into A <br class="hidden sm:inline">
-          <span class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-900 bg-clip-text text-transparent">24/7 Client Magnet.</span> <br>
-          Delivered In 5 Days.
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.14] mb-5 max-w-3xl mx-auto" style="text-wrap: balance;">
+          Turn Your Website Into A <span class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-900 bg-clip-text text-transparent">24/7 Client Magnet.</span>
+          <span class="block mt-1 sm:mt-2 text-2xl sm:text-4xl lg:text-5xl text-slate-800 font-extrabold tracking-tight">Built & Delivered In Just 5 Days.</span>
         </h1>
         
-        <p class="text-lg sm:text-xl text-slate-600 font-normal max-w-3xl mx-auto mb-10 leading-relaxed">
-          Brand-new builds or complete legacy site overhauls for one predictable monthly retainer. No $10,000 upfront agency deposits. No ghosting freelancers. Unlimited revisions, 99+ Google PageSpeed, and 48-hour turnarounds on all updates. Zero contracts.
+        <p class="text-base sm:text-lg lg:text-xl text-slate-600 font-normal max-w-2xl mx-auto mb-9 leading-relaxed" style="text-wrap: pretty;">
+          Brand-new builds or complete legacy site overhauls on a flat monthly retainer. Zero $10,000 upfront deposits, unlimited revisions, 99+ PageSpeed, and 48-hour turnarounds. No contracts.
         </p>
 
         <!-- High-Intent Dual CTAs -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <button data-plan="Growth & Redesign ($189/mo)" class="open-modal-btn shimmer-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-extrabold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-6">
+          <button data-plan="Growth & Redesign ($189/mo)" class="open-modal-btn shimmer-btn w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-extrabold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5">
             <span>Claim Your Slot & Start Today</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </button>
           
-          <button onclick="openCallBookingModal()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-300 hover:border-slate-400 font-bold text-base shadow-sm hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+          <button onclick="openCallBookingModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-300 hover:border-slate-400 font-bold text-base shadow-xs hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
             <i data-lucide="calendar" class="w-4 h-4 text-blue-600"></i>
             <span>Book 15-Min Scope Call</span>
           </button>
 
-          <a href="#comparison" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-blue-50/90 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-base transition-all flex items-center justify-center gap-2">
+          <a href="#comparison" class="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-blue-50/90 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-base transition-all flex items-center justify-center gap-2">
             <i data-lucide="sparkles" class="w-4 h-4 text-blue-600"></i>
             <span>See Transformations</span>
           </a>
         </div>
 
-        <!-- Reassurance Badges Row -->
-        <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-slate-500 font-semibold mb-12">
-          <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> $0 Upfront Deposit</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 14-Day 100% Money-Back Guarantee</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 48-Hour Turnaround</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pause or Cancel Anytime</span>
+        <!-- Reassurance Badges Row (Anti-Wrap Flex) -->
+        <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-5 text-xs text-slate-500 font-semibold mb-12">
+          <span class="flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> $0 Upfront Deposit</span>
+          <span class="flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 14-Day 100% Money-Back</span>
+          <span class="flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 48-Hour Turnaround</span>
+          <span class="flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Pause or Cancel Anytime</span>
         </div>
 
         <!-- Hero Live Product Showcase Preview (Linear / Stripe Grade Mockup) -->
