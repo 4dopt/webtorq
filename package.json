@@ -1,0 +1,11 @@
+{
+  "name": "webtorq-subscription-web-agency",
+  "version": "1.0.0",
+  "description": "WebTorq: All-in-one website builds, legacy site modernizations, and unlimited updates on subscription.",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["web-design", "agency", "subscription", "website-redesign"],
+  "author": "",
+  "license": "MIT"
+}
