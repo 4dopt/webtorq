@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyConversionBar();
   initSocialProofToast();
   initModalTabsAndScheduler();
+  if (window.lucide && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
 });
 
 // 1. Interactive Before / After Comparison Slider Engine
@@ -1042,4 +1045,77 @@ window.openCallBookingModal = function() {
 window.dismissSocialProof = function() {
   const toastEl = document.getElementById('socialProofToast');
   if (toastEl) toastEl.classList.remove('show');
+};
+
+// 13. Hero Dual-Mode Switcher & 2-Minute Scope Builder (Sitesquad & 123webpage style)
+let heroScopeState = {
+  industry: 'corporate',
+  goal: 'redesign'
+};
+
+window.switchHeroTab = function(tab) {
+  const btnQuiz = document.getElementById('heroTabQuiz');
+  const btnPreview = document.getElementById('heroTabPreview');
+  const contentQuiz = document.getElementById('heroScopeBuilderContent');
+  const contentPreview = document.getElementById('heroPreviewContent');
+
+  if (!btnQuiz || !btnPreview) return;
+
+  if (tab === 'quiz') {
+    btnQuiz.classList.add('bg-slate-900', 'text-white', 'shadow-xs');
+    btnQuiz.classList.remove('text-slate-600');
+    btnPreview.classList.remove('bg-slate-900', 'text-white', 'shadow-xs');
+    btnPreview.classList.add('text-slate-600');
+
+    if (contentQuiz) contentQuiz.classList.remove('hidden');
+    if (contentPreview) contentPreview.classList.add('hidden');
+  } else {
+    btnPreview.classList.add('bg-slate-900', 'text-white', 'shadow-xs');
+    btnPreview.classList.remove('text-slate-600');
+    btnQuiz.classList.remove('bg-slate-900', 'text-white', 'shadow-xs');
+    btnQuiz.classList.add('text-slate-600');
+
+    if (contentPreview) contentPreview.classList.remove('hidden');
+    if (contentQuiz) contentQuiz.classList.add('hidden');
+  }
+
+  if (window.lucide && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
+};
+
+window.selectHeroIndustry = function(btn, key) {
+  heroScopeState.industry = key;
+  document.querySelectorAll('.hero-scope-pill').forEach(pill => {
+    pill.classList.remove('border-blue-600', 'bg-blue-50', 'text-blue-900', 'active');
+    pill.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+  });
+  btn.classList.add('border-blue-600', 'bg-blue-50', 'text-blue-900', 'active');
+  btn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+};
+
+window.selectHeroGoal = function(btn, goal) {
+  heroScopeState.goal = goal;
+  document.querySelectorAll('.hero-goal-pill').forEach(pill => {
+    pill.classList.remove('border-blue-600', 'bg-blue-50/60', 'active');
+    pill.classList.add('border-slate-200', 'bg-white');
+  });
+  btn.classList.add('border-blue-600', 'bg-blue-50/60', 'active');
+  btn.classList.remove('border-slate-200', 'bg-white');
+};
+
+window.launchQuizReservation = function() {
+  const modal = document.getElementById('bookingModal') || document.getElementById('inquiryModal');
+  const planInput = document.getElementById('selectedPlanInput');
+  const tabReserveBtn = document.getElementById('tabReserveBtn');
+
+  if (planInput) {
+    planInput.value = `Growth & Redesign ($189/mo) - Industry: ${heroScopeState.industry}, Goal: ${heroScopeState.goal}`;
+  }
+
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (tabReserveBtn) tabReserveBtn.click();
+  }
 };

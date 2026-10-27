@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-display: 'Bricolage Grotesque', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   --primary: #1e3a8a;          /* Deep classic navy */
   --primary-accent: #2563eb;   /* Refined royal blue */
@@ -28,7 +29,9 @@
 }
 
 /* Modern Typographic Balance & Anti-Orphan Rules */
-h1, h2, h3, h4, .text-balance {
+h1, h2, h3, h4, .font-display, .brand-font {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
   text-wrap: balance;
   -webkit-text-wrap: balance;
 }
@@ -45,6 +48,10 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+code, pre, .font-mono, .badge-mono, .mono-data {
+  font-family: var(--font-mono) !important;
 }
 
 .font-editorial {
@@ -688,4 +695,35 @@ img, svg, video, canvas, audio, iframe, embed, object {
   button, a {
     touch-action: manipulation;
   }
+}
+
+/* Hero Scope Builder Pills (Sitesquad Style) */
+.hero-scope-pill {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+.hero-scope-pill:hover {
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.hero-scope-pill.active {
+  border-color: #2563eb !important;
+  background-color: #eff6ff !important;
+  color: #1e3a8a !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.hero-goal-pill {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+.hero-goal-pill:hover {
+  border-color: #94a3b8;
+}
+.hero-goal-pill.active {
+  border-color: #2563eb !important;
+  background-color: rgba(239, 246, 255, 0.7) !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
 }
