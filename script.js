@@ -202,37 +202,43 @@ function renderIndustry(key) {
     if (sliderHandle) sliderHandle.style.display = 'none';
     if (sliderInput) sliderInput.style.display = 'none';
 
+    const hotspotsEl = document.getElementById('hotspotsContainer');
+    if (hotspotsEl) hotspotsEl.style.display = 'none';
+
     if (beforeInner) {
       beforeInner.style.width = '100%';
       beforeInner.innerHTML = `
-        <div class="relative w-full h-full bg-slate-900 flex flex-col">
-          <div class="px-3.5 py-2 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
+        <div class="relative w-full h-full bg-slate-900 flex flex-col overflow-hidden">
+          <div class="px-3.5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
             <span class="font-bold flex items-center gap-1.5 text-rose-400">
               <span class="w-2 h-2 rounded-full bg-rose-500"></span>
               Original: horizonlogisticslondon.com
             </span>
             <a href="https://horizonlogisticslondon.com/" target="_blank" rel="noopener" class="text-[11px] underline text-slate-300 hover:text-white flex items-center gap-1">Open Tab ↗</a>
           </div>
-          <iframe src="https://horizonlogisticslondon.com/" class="w-full flex-1 min-h-[440px] border-0 bg-white" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+          <iframe src="https://horizonlogisticslondon.com/" class="w-full flex-1 border-0 bg-white" style="height: calc(100% - 41px); min-height: 520px; overflow-y: auto;" loading="lazy"></iframe>
         </div>
       `;
     }
 
     if (afterInner) {
       afterInner.innerHTML = `
-        <div class="relative w-full h-full bg-slate-900 flex flex-col">
-          <div class="px-3.5 py-2 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
+        <div class="relative w-full h-full bg-slate-900 flex flex-col overflow-hidden">
+          <div class="px-3.5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
             <span class="font-bold flex items-center gap-1.5 text-emerald-400">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               Redesign: horizonlogisticslondon.netlify.app
             </span>
             <a href="https://horizonlogisticslondon.netlify.app/" target="_blank" rel="noopener" class="text-[11px] underline text-emerald-300 hover:text-white flex items-center gap-1">Open Tab ↗</a>
           </div>
-          <iframe src="https://horizonlogisticslondon.netlify.app/" class="w-full flex-1 min-h-[440px] border-0 bg-slate-950" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+          <iframe src="https://horizonlogisticslondon.netlify.app/" class="w-full flex-1 border-0 bg-slate-950" style="height: calc(100% - 41px); min-height: 520px; overflow-y: auto;" loading="lazy"></iframe>
         </div>
       `;
     }
   } else {
+    const hotspotsEl = document.getElementById('hotspotsContainer');
+    if (hotspotsEl) hotspotsEl.style.display = '';
+
     // Desktop or Mobile Real Visual Slider Mode
     if (comparisonState.viewMode === 'slider') {
       if (container) container.classList.remove('is-side-by-side');
@@ -387,6 +393,7 @@ window.toggleComparisonViewMode = function() {
   const container = document.getElementById('comparisonContainer');
   const btn = document.getElementById('viewModeBtn');
   const beforeInner = document.getElementById('beforeInnerContent');
+  const hotspotsEl = document.getElementById('hotspotsContainer');
   if (!container) return;
 
   if (comparisonState.viewMode === 'slider') {
@@ -395,12 +402,14 @@ window.toggleComparisonViewMode = function() {
     container.classList.add('is-side-by-side');
     if (btn) btn.innerHTML = `<i data-lucide="sliders" class="w-3.5 h-3.5 text-blue-600"></i><span>Slider Mode</span>`;
     if (beforeInner) beforeInner.style.width = '100%';
+    if (hotspotsEl) hotspotsEl.style.display = 'none';
   } else {
     comparisonState.viewMode = 'slider';
     container.classList.remove('is-side-by-side');
     if (btn) btn.innerHTML = `<i data-lucide="columns" class="w-3.5 h-3.5 text-blue-600"></i><span>Side-by-Side View</span>`;
     const sliderInput = document.getElementById('comparisonSlider');
     if (sliderInput) sliderInput.dispatchEvent(new Event('input'));
+    if (hotspotsEl && comparisonState.currentIndustry !== 'live') hotspotsEl.style.display = '';
   }
 
   if (window.lucide && typeof lucide.createIcons === 'function') {
