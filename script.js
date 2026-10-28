@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 1. Interactive Before / After Comparison Slider Engine
+// 1. Interactive Before / After Comparison Slider Engine (Real Websites Only)
 let comparisonState = {
-  currentIndustry: 'horizon',
+  currentIndustry: 'desktop',
   viewMode: 'slider', // 'slider' or 'side-by-side'
   autoScanActive: false,
   autoScanReqId: null,
@@ -28,44 +29,14 @@ let comparisonState = {
 };
 
 const comparisonData = {
-  horizon: {
-    name: 'Horizon Logistics London',
+  desktop: {
+    title: 'Horizon Logistics London (Desktop 1440px)',
     url: 'horizonlogisticslondon.com → horizonlogisticslondon.netlify.app',
     liveUrl: 'https://horizonlogisticslondon.netlify.app/',
     beforeUrl: 'https://horizonlogisticslondon.com/',
     speedBadge: '100 PageSpeed • 0.35s Load',
-    securityBadge: 'GDP Compliant • Cold Chain A+',
-    before: {
-      marquee: '*** HORIZON LOGISTICS LONDON: TEMPERATURE CONTROL & SAME DAY COURIER ***',
-      logo: 'HORIZON LOGISTICS LONDON',
-      tagline: '"Trusted Transport & Logistics Company in London"',
-      nav: ['HOME', 'SERVICES', 'ABOUT_US', 'DRIVER_RECRUITMENT', 'CONTACT'],
-      alert: '⚠️ NOTICE: Call office between 9am-5pm or submit email form for delivery quotes (allow 24-48h).',
-      title: 'Professional Transport & Logistics Services in London to Strengthen Your Supply Chain',
-      body: 'We deliver freight solutions across London and the UK. For pallet distribution, contract transport, and temperature-controlled quotes, complete our 8-field contact inquiry form below and allow up to 48 hours for our team to review.',
-      btn: 'Visit Original Live Site (WordPress) ↗',
-      speedTag: 'Page Speed: 41/100 (6.4s) • Heavy WordPress / Elementor Bloat',
-      counter: '019,420',
-      year: '2018'
-    },
-    after: {
-      initials: 'H',
-      brand: 'Horizon Logistics',
-      accentWord: 'London',
-      nav: ['Cold Chain', 'Same Day Transit', 'Pallets & Freight', 'Driver Hub'],
-      pill: 'Real Client Redesign Case Study • Wembley, London',
-      title: 'Professional Transport & Temperature Controlled Logistics in London.',
-      body: 'From mission-critical chilled pharmaceuticals (-25°C to +25°C) and frozen food transport to rapid 30-60 min courier dispatch and nationwide road haulage. Backed by 50+ years of operational excellence.',
-      primaryBtn: 'Open Live Redesign ↗',
-      secondaryBtn: 'WhatsApp 24/7 Dispatch',
-      secondaryUrl: 'https://wa.me/447878569458',
-      cardTitle: 'Fleet Dispatch SLA',
-      cardVal: '30–60 Min Rapid Dispatch',
-      cardMetricTitle: 'Cold Chain Range',
-      cardMetricVal: '-25°C to +25°C Dual-Temp',
-      cardFeature: 'Real-time GPS tracking, GDP-compliant pharmaceuticals & instant WhatsApp dispatch',
-      trustBadge: '50+ Years Haulage Heritage • GDP Compliant • Wembley HA0 3FF'
-    },
+    beforeImage: '/public/images/horizon-before.png',
+    afterImage: '/public/images/horizon-after.png',
     metrics: {
       speed: { before: '41/100 (6.4s)', after: '100/100 (0.35s)', diff: '⚡ 18x Faster' },
       mobile: { before: 'Cluttered WP Layout', after: '1-Tap WhatsApp & Call', diff: '📱 +84% Mobile Inquiries' },
@@ -73,157 +44,53 @@ const comparisonData = {
       security: { before: 'Outdated WP Plugins', after: 'Netlify Edge CDN + SSL', diff: '🛡️ 100% Zero Downtime' }
     },
     hotspots: [
-      { id: 1, top: '15%', left: '72%', title: 'Instant WhatsApp & 24/7 Dispatch', flaw: 'Before: Restricted 9am-5pm phone desk and delayed email form', upgrade: 'After: 1-click 24/7 WhatsApp dispatch to 07878 569458 & rapid quote modal' },
-      { id: 2, top: '42%', left: '26%', title: 'Specialized Cold Chain Focus', flaw: 'Before: Generic freight text burying cold chain capabilities', upgrade: 'After: Dual-temp (-25°C to +25°C) pharma & frozen food precision front and center' },
-      { id: 3, top: '48%', left: '78%', title: 'Live Dispatch SLA Card', flaw: 'Before: Zero turnaround commitments or transit time guarantees', upgrade: 'After: 30-60 min rapid transit guarantee with real-time GPS tracking proof' },
-      { id: 4, top: '85%', left: '30%', title: 'Frictionless Mobile-First Quote Engine', flaw: 'Before: Clunky 8-field WordPress Elementor form with 24-48h reply lag', upgrade: 'After: 45-second direct quote flow with instant dispatcher route matching' }
+      { id: 1, top: '12%', left: '76%', title: 'Instant WhatsApp & 24/7 Dispatch', flaw: 'Before: Restricted 9am-5pm phone desk and delayed email form', upgrade: 'After: 1-click 24/7 WhatsApp dispatch to 07878 569458 & rapid quote modal' },
+      { id: 2, top: '38%', left: '26%', title: 'Specialized Cold Chain Focus', flaw: 'Before: Generic freight text burying cold chain capabilities', upgrade: 'After: Dual-temp (-25°C to +25°C) pharma & frozen food precision front and center' },
+      { id: 3, top: '50%', left: '74%', title: 'Live Dispatch SLA Card', flaw: 'Before: Zero turnaround commitments or transit time guarantees', upgrade: 'After: 30-60 min rapid transit guarantee with real-time GPS tracking proof' },
+      { id: 4, top: '78%', left: '32%', title: 'Frictionless Mobile-First Quote Engine', flaw: 'Before: Clunky 8-field WordPress Elementor form with 24-48h reply lag', upgrade: 'After: 45-second direct quote flow with instant dispatcher route matching' }
     ]
   },
-  corporate: {
-    name: 'Sterling Advisory Group',
-    url: 'https://sterling-advisory-group.com',
-    speedBadge: '100 PageSpeed • 0.3s Load',
-    securityBadge: 'SOC-2 Type II Certified',
-    before: {
-      marquee: '*** STERLING ADVISORY ASSOCIATES LLC - WELCOME TO OUR WEB PORTAL ***',
-      logo: 'STERLING ADVISORY LLC',
-      tagline: '"Providing Corporate Advice Since 2003"',
-      nav: ['HOME', 'ABOUT_US.HTM', 'SERVICES', 'FAX_INQUIRY', 'CONTACT'],
-      alert: 'NOTICE: Please call our office between 9am - 4pm EST or fax to (555) 019-2831',
-      title: 'General Management & Executive Consulting Solutions',
-      body: 'We offer financial advice and business restructuring packages. To inquire, please download our 12-page consultation application document (.PDF) and fax to our New York office.',
-      btn: 'Download PDF Application (4.2 MB)',
-      speedTag: 'Page Speed: 6.8s (Grade F) • HTTP Insecure',
-      counter: '004,821',
-      year: '2011'
-    },
-    after: {
-      initials: 'S',
-      brand: 'Sterling Advisory',
-      accentWord: 'Advisory',
-      nav: ['Expertise', 'Case Studies', 'Partners', 'Insights'],
-      pill: 'Institutional Advisory & M&A Support',
-      title: 'Strategic Precision For Mid-Market Corporate Growth.',
-      body: 'We guide corporate executives and private founders through mergers, restructuring, and balance sheet optimization with trusted institutional expertise.',
-      primaryBtn: 'Request Consultation &rarr;',
-      secondaryBtn: 'View Client Results',
-      cardTitle: 'Portfolio Advisory Value',
-      cardVal: '$240M+',
-      cardMetricTitle: 'Client Inquiry Conversion',
-      cardMetricVal: '+175%',
-      cardFeature: 'Optimized for fast mobile booking & high trust',
-      trustBadge: 'Fully Certified • SOC-2 Type II Compliant'
-    },
+  mobile: {
+    title: 'Horizon Logistics London (Mobile 390px)',
+    url: 'm.horizonlogisticslondon.com → horizonlogisticslondon.netlify.app',
+    liveUrl: 'https://horizonlogisticslondon.netlify.app/',
+    beforeUrl: 'https://horizonlogisticslondon.com/',
+    speedBadge: '100 Mobile Score • 0.38s Load',
+    beforeImage: '/public/images/horizon-before-mobile.png',
+    afterImage: '/public/images/horizon-after-mobile.png',
     metrics: {
-      speed: { before: '28/100 (6.8s)', after: '99/100 (0.4s)', diff: '⚡ 17x Faster' },
-      mobile: { before: 'Broken Layout', after: '100% Fluid Native', diff: '📱 0 Pinch Zoom' },
-      conversion: { before: '0.7% Fax/Calls', after: '4.8% Bookings', diff: '📈 +520% Inquiries' },
-      security: { before: 'HTTP / PHP 5.4', after: 'Edge CDN + SSL A+', diff: '🛡️ Zero Exploits' }
+      speed: { before: '32/100 (7.1s)', after: '99/100 (0.38s)', diff: '⚡ 19x Faster Mobile' },
+      mobile: { before: 'Horizontal Overflow', after: 'Native Touch Ergonomics', diff: '📱 0 Pinch Zooming' },
+      conversion: { before: '0.8% Mobile Clicks', after: '7.4% WhatsApp Dispatches', diff: '📈 +825% Mobile Leads' },
+      security: { before: 'Uncached Mobile WP', after: 'Edge CDN Micro-Assets', diff: '🛡️ Instant Delivery' }
     },
     hotspots: [
-      { id: 1, top: '15%', left: '72%', title: 'Streamlined Navigation', flaw: 'Before: 14 cluttered links with no clear next step', upgrade: 'After: 4 core navigation paths + primary consultation button' },
-      { id: 2, top: '42%', left: '26%', title: 'Authority Value Prop', flaw: 'Before: Dense paragraph with generic consulting jargon', upgrade: 'After: Crisp value proposition tailored to C-suite decision makers' },
-      { id: 3, top: '48%', left: '78%', title: 'Verified Proof Card', flaw: 'Before: Zero social proof or transaction evidence', upgrade: 'After: Real-time portfolio advisory volume & conversion metrics' },
-      { id: 4, top: '85%', left: '30%', title: 'Instant Online Booking', flaw: 'Before: 12-page printable PDF that required a fax machine', upgrade: 'After: Frictionless 1-click scheduling synced to executive calendars' }
+      { id: 1, top: '10%', left: '80%', title: 'Sticky WhatsApp Dispatch', flaw: 'Before: Mobile users had to hunt for phone number', upgrade: 'After: Instant tap-to-dispatch WhatsApp floating button' },
+      { id: 2, top: '32%', left: '50%', title: 'Readable Touch Typography', flaw: 'Before: Tiny desktop font scaled down illegibly', upgrade: 'After: Bold, high-contrast mobile typography tailored to logistics managers' },
+      { id: 3, top: '56%', left: '50%', title: 'SLA Guarantee Cards', flaw: 'Before: Wall of dense text with zero visual hierarchy', upgrade: 'After: High-trust swipeable SLA cards showing 30-60 min rapid transit' },
+      { id: 4, top: '80%', left: '50%', title: '1-Thumb Quote Modal', flaw: 'Before: Endless scrolling 8-field desktop form on phone', upgrade: 'After: 2-step thumb-friendly quote sheet' }
     ]
   },
-  healthcare: {
-    name: 'Apex Dental & Smile Studio',
-    url: 'https://apexdentalcare.com',
-    speedBadge: '100 PageSpeed • 0.3s Load',
-    securityBadge: 'HIPAA Compliant & Encrypted',
-    before: {
-      marquee: '*** APEX FAMILY DENTISTRY & ORTHODONTICS - DR. ROBERT D. SMITH, DDS ***',
-      logo: 'APEX DENTAL CLINIC',
-      tagline: '"Caring For Smiles In Town Since 1998"',
-      nav: ['HOME', 'SERVICES', 'MEET_DR_BOB', 'DIRECTIONS_MAP', 'RULES'],
-      alert: '⚠️ NOTICE: Arrive 45 mins early to fill out paper intake forms in the waiting room',
-      title: 'Family Dental Care, Cleanings & Root Canal Procedures',
-      body: 'Welcome to our clinic website. We are currently experiencing heavy phone line traffic. To book, please call during morning desk hours or download our new patient paperwork to print at home.',
-      btn: 'Download Patient Forms (.DOC)',
-      speedTag: 'Page Speed: 7.2s (Grade F) • Not Mobile Friendly',
-      counter: '014,319',
-      year: '2010'
-    },
-    after: {
-      initials: 'A',
-      brand: 'Apex Dental',
-      accentWord: 'Smiles',
-      nav: ['Cosmetic Care', 'Implants', 'Emergency', 'Insurance Check'],
-      pill: 'Top-Rated Cosmetic & Family Dentistry',
-      title: 'Effortless Modern Dentistry Designed For Confident Smiles.',
-      body: 'Experience pain-free treatments, zero waiting room paperwork, and 3D digital imaging. In-network with all major PPO insurance plans with instant digital check-in.',
-      primaryBtn: 'Book Appointment Online &rarr;',
-      secondaryBtn: 'Explore Smile Gallery',
-      cardTitle: 'Patient Satisfaction Score',
-      cardVal: '4.9 ★★★★★',
-      cardMetricTitle: 'Average Clinic Wait Time',
-      cardMetricVal: '< 3 Mins',
-      cardFeature: 'Instant digital check-in & automated SMS reminders',
-      trustBadge: 'HIPAA Compliant • 3D Guided Dental Tech'
-    },
+  live: {
+    title: 'Horizon Logistics London (Live Interactive Embeds)',
+    url: 'Live Interactive: horizonlogisticslondon.com vs horizonlogisticslondon.netlify.app',
+    liveUrl: 'https://horizonlogisticslondon.netlify.app/',
+    beforeUrl: 'https://horizonlogisticslondon.com/',
+    speedBadge: 'Live Verified Sites',
     metrics: {
-      speed: { before: '24/100 (7.2s)', after: '100/100 (0.3s)', diff: '⚡ 24x Faster' },
-      mobile: { before: 'Pinch & Scroll', after: '1-Tap Mobile Booking', diff: '📱 +72% Mobile Users' },
-      conversion: { before: '0.9% Phone Calls', after: '6.4% Online Bookings', diff: '📈 +610% Bookings' },
-      security: { before: 'Unencrypted HTTP', after: 'HIPAA & SSL Verified', diff: '🛡️ Patient Data Safe' }
+      speed: { before: '41/100 (6.4s)', after: '100/100 (0.35s)', diff: '⚡ 18x Faster' },
+      mobile: { before: 'Cluttered WP Layout', after: '1-Tap WhatsApp & Call', diff: '📱 +84% Mobile Inquiries' },
+      conversion: { before: '1.2% Inquiry Rate', after: '6.8% Quote Requests', diff: '📈 +460% Fast Quotes' },
+      security: { before: 'Outdated WP Plugins', after: 'Netlify Edge CDN + SSL', diff: '🛡️ 100% Zero Downtime' }
     },
-    hotspots: [
-      { id: 1, top: '15%', left: '72%', title: '1-Click Booking Widget', flaw: 'Before: Forced patients to call during narrow receptionist hours', upgrade: 'After: 24/7 instant booking with real-time chair availability' },
-      { id: 2, top: '42%', left: '26%', title: 'Patient-First Copywriting', flaw: 'Before: Intimidating list of dental surgeries & clinical jargon', upgrade: 'After: Warm, trust-building copy focusing on comfort & pain-free care' },
-      { id: 3, top: '48%', left: '78%', title: '5-Star Google Social Proof', flaw: 'Before: No ratings or patient testimonials shown', upgrade: 'After: Verified 4.9-star rating badge from 480+ local patients' },
-      { id: 4, top: '85%', left: '30%', title: 'Zero Waiting Room Paperwork', flaw: 'Before: Demanded printing multi-page paper forms at home', upgrade: 'After: 60-second mobile intake form sent straight to patient phones' }
-    ]
-  },
-  tech: {
-    name: 'CloudSync Data Platform',
-    url: 'https://cloudsync-systems.io',
-    speedBadge: '99.999% SLA • 0.35s Load',
-    securityBadge: 'SOC-2 Type II & GDPR Ready',
-    before: {
-      marquee: '*** CLOUDSYNC ENTERPRISE HOSTING & LINUX VPS STORAGE INC ***',
-      logo: 'CLOUDSYNC SYSTEMS CORP',
-      tagline: '"Dedicated Server Co-Location & Backup Scripts"',
-      nav: ['OVERVIEW', 'SERVER_SPECS', 'CPANEL_ACCESS', 'SSH_KEYS', 'TICKETS'],
-      alert: 'ALERT: Open a support ticket to request custom enterprise pricing (allow 3 business days)',
-      title: 'Managed VPS Cloud Servers, Dedicated Co-Location & Backups',
-      body: 'We configure dedicated server racks manually with custom Apache & MySQL installations. To obtain custom pricing, download our 22-page configuration RFP and email sales@cloudsync-servers.net.',
-      btn: 'Download Server Spec RFP (.XLSX)',
-      speedTag: 'Page Speed: 8.1s (Grade F) • Expired SSL Certificate',
-      counter: '009,871',
-      year: '2012'
-    },
-    after: {
-      initials: 'C',
-      brand: 'CloudSync',
-      accentWord: 'Platform',
-      nav: ['Infrastructure', 'Integrations', 'Benchmarks', 'Enterprise'],
-      pill: 'Next-Gen Real-Time Data Pipeline',
-      title: 'Deploy Scalable Cloud Infrastructure in Minutes, Not Weeks.',
-      body: 'Connect your databases, automate streaming pipelines, and scale to millions of concurrent events with zero DevOps overhead and sub-10ms global latency.',
-      primaryBtn: 'Start Free 14-Day Sandbox &rarr;',
-      secondaryBtn: 'Read Benchmark Report',
-      cardTitle: 'Global Pipeline Throughput',
-      cardVal: '1.8M Events/s',
-      cardMetricTitle: 'Global Query P99 Latency',
-      cardMetricVal: '< 12ms',
-      cardFeature: 'Native GitOps deployment & automated schema sync',
-      trustBadge: 'Sub-millisecond Edge Mesh • SOC-2 Type II Certified'
-    },
-    metrics: {
-      speed: { before: '31/100 (8.1s)', after: '99/100 (0.35s)', diff: '⚡ 23x Faster' },
-      mobile: { before: '0% Mobile Usable', after: '100% Responsive Bento UI', diff: '📱 Clean On Any Screen' },
-      conversion: { before: '0.5% Slow Sales RFPs', after: '4.2% Self-Serve Trials', diff: '📈 +740% Free Trials' },
-      security: { before: 'Expired SSL / HTTP', after: 'Enterprise Zero-Trust', diff: '🛡️ SOC-2 Type II' }
-    },
-    hotspots: [
-      { id: 1, top: '15%', left: '72%', title: 'Frictionless Self-Serve Trial', flaw: 'Before: Forced a 3-day turnaround RFP sales quote process', upgrade: 'After: Immediate 1-click sandbox deployment with zero credit card required' },
-      { id: 2, top: '42%', left: '26%', title: 'Modern Developer Headline', flaw: 'Before: Dense wall of text describing manual server specs', upgrade: 'After: High-impact developer-focused messaging emphasizing velocity' },
-      { id: 3, top: '48%', left: '78%', title: 'Live Performance Metrics', flaw: 'Before: Vague claims with zero concrete latency or uptime data', upgrade: 'After: Verified 1.8M events/s throughput & sub-12ms P99 latency stats' },
-      { id: 4, top: '85%', left: '30%', title: 'Automated Developer GitOps', flaw: 'Before: Manual SSH configurations and archaic cPanel screens', upgrade: 'After: Modern GitOps native workflow with edge deployment automation' }
-    ]
+    hotspots: []
   }
 };
+// Backward compatibility aliases
+comparisonData.horizon = comparisonData.desktop;
+comparisonData.corporate = comparisonData.desktop;
+comparisonData.healthcare = comparisonData.mobile;
+comparisonData.tech = comparisonData.live;
 
 function initComparisonSlider() {
   const container = document.getElementById('comparisonContainer');
@@ -278,14 +145,14 @@ function initComparisonSlider() {
     }
   });
 
-  // Render initial industry
+  // Render initial industry/mode
   renderIndustry(comparisonState.currentIndustry);
   updateSlider(50);
 }
 
-// Render Industry Showcase Content
+// Render Real Website Showcase Content
 function renderIndustry(key) {
-  const data = comparisonData[key];
+  const data = comparisonData[key] || comparisonData['desktop'];
   if (!data) return;
 
   comparisonState.currentIndustry = key;
@@ -294,7 +161,13 @@ function renderIndustry(key) {
   const urlDisplay = document.getElementById('comparisonBrowserUrl');
   if (urlDisplay) {
     if (data.liveUrl) {
-      urlDisplay.innerHTML = `<a href="${data.liveUrl}" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 truncate" title="View live redesign">${data.url} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-70"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>`;
+      urlDisplay.innerHTML = `
+        <div class="flex items-center gap-1.5 truncate text-[11px] sm:text-xs">
+          <a href="${data.beforeUrl}" target="_blank" rel="noopener" class="text-rose-600 hover:underline truncate" title="Open original WordPress site">horizonlogisticslondon.com</a>
+          <span class="text-slate-400">→</span>
+          <a href="${data.liveUrl}" target="_blank" rel="noopener" class="text-emerald-700 font-bold hover:underline truncate" title="Open live modern redesign">horizonlogisticslondon.netlify.app</a>
+        </div>
+      `;
     } else {
       urlDisplay.textContent = data.url;
     }
@@ -306,7 +179,7 @@ function renderIndustry(key) {
   // 2. Update Industry Tabs styling
   document.querySelectorAll('.industry-tab-btn').forEach(btn => {
     const ind = btn.getAttribute('data-industry');
-    if (ind === key) {
+    if (ind === key || (key === 'desktop' && ind === 'horizon')) {
       btn.classList.add('bg-slate-900', 'text-white', 'shadow-xs');
       btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
     } else {
@@ -315,144 +188,95 @@ function renderIndustry(key) {
     }
   });
 
-  // 3. Update Retro Before Layer Content
+  const container = document.getElementById('comparisonContainer');
+  const sliderInput = document.getElementById('comparisonSlider');
+  const sliderHandle = document.getElementById('sliderHandle');
+  const beforeLayer = document.getElementById('beforeLayer');
   const beforeInner = document.getElementById('beforeInnerContent');
-  if (beforeInner) {
-    const navLinks = data.before.nav.map(n => `<a href="#" onclick="return false;" class="text-blue-800 underline hover:text-blue-600">${n}</a>`).join(' &bull; ');
-    const beforeBtnAction = data.beforeUrl ? `window.open('${data.beforeUrl}', '_blank')` : `alert('Simulated legacy link: This PDF download was 4.2MB and took 14 seconds to load in 2011!')`;
-    beforeInner.innerHTML = `
-      <div>
-        <div class="retro-marquee flex items-center justify-between">
-          <span>${data.before.marquee}</span>
-          <span class="retro-blink text-red-600 font-bold uppercase text-[10px]">⚠️ LEGACY SITE</span>
-        </div>
-        <header class="p-3 sm:p-4 mt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-yellow-600">
-          <div>
-            <div class="text-lg sm:text-xl font-bold tracking-wider text-yellow-300 uppercase font-serif">
-              ${data.before.logo}
-            </div>
-            <div class="text-[10px] text-slate-200 italic">${data.before.tagline}</div>
-          </div>
-          <div class="mt-2 sm:mt-0 text-[11px] text-white flex flex-wrap gap-2">
-            ${navLinks}
-          </div>
-        </header>
-      </div>
-
-      <div class="my-auto py-5 space-y-3">
-        <div class="inline-block bg-red-800 text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-1 border border-black">
-          ${data.before.alert}
-        </div>
-        <h3 class="text-xl sm:text-3xl font-bold text-slate-900 leading-snug font-serif">
-          ${data.before.title}
-        </h3>
-        <p class="text-xs sm:text-sm text-gray-800 leading-relaxed font-serif max-w-xl">
-          ${data.before.body}
-        </p>
-        
-        <div class="pt-2 flex flex-wrap items-center gap-3">
-          <button class="retro-btn" onclick="${beforeBtnAction}">${data.before.btn}</button>
-          <span class="text-red-700 font-bold text-xs bg-red-50 px-2 py-0.5 border border-red-200 font-sans">
-            ${data.before.speedTag}
-          </span>
-        </div>
-      </div>
-
-      <div class="pt-3 border-t-2 border-gray-400 text-[10px] sm:text-[11px] text-gray-700 font-sans flex flex-wrap items-center justify-between gap-2">
-        <span>Copyright &copy; ${data.before.year} ${data.name}. All rights reserved.</span>
-        <div class="flex items-center gap-2">
-          <span>Hit Counter:</span>
-          <span class="retro-counter">${data.before.counter}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  // 4. Update Modern After Layer Content
   const afterInner = document.getElementById('afterModernContent');
-  if (afterInner) {
-    const navItems = data.after.nav.map(n => `<span class="cursor-pointer hover:text-slate-900 transition-colors">${n}</span>`).join('');
-    const primaryBtnAction = data.liveUrl ? `window.open('${data.liveUrl}', '_blank')` : '';
-    const secondaryBtnAction = data.after.secondaryUrl ? `window.open('${data.after.secondaryUrl}', '_blank')` : '';
-    afterInner.innerHTML = `
-      <!-- Clean Modern Header -->
-      <div class="flex items-center justify-between border-b border-slate-100 pb-4 sm:pb-5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white font-bold text-sm shadow-xs">
-            ${data.after.initials}
-          </div>
-          <span class="font-bold text-base sm:text-lg tracking-tight text-slate-900">
-            ${data.after.brand} <span class="text-blue-600 font-medium">${data.after.accentWord}</span>
-          </span>
-        </div>
-        <div class="hidden sm:flex items-center gap-6 text-xs font-semibold text-slate-600">
-          ${navItems}
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="hidden md:inline-flex px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            ${data.speedBadge}
-          </span>
-          <button class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-xs" onclick="${primaryBtnAction}">
-            Get Started
-          </button>
-        </div>
-      </div>
 
-      <!-- Clean Modern Hero Body -->
-      <div class="my-auto py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-        <div class="md:col-span-7 space-y-3.5">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-100">
-            ✨ ${data.after.pill}
-          </span>
-          <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
-            ${data.after.title}
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-lg">
-            ${data.after.body}
-          </p>
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <button class="px-4 py-2.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-sm flex items-center gap-2" onclick="${primaryBtnAction}">
-              <span>${data.after.primaryBtn}</span>
-            </button>
-            <button class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-100" onclick="${secondaryBtnAction}">
-              ${data.after.secondaryBtn}
-            </button>
+  // Handle Live Interactive Embeds
+  if (key === 'live') {
+    if (comparisonState.autoScanActive) stopAutoScan();
+    if (container) container.classList.add('is-side-by-side');
+    if (sliderHandle) sliderHandle.style.display = 'none';
+    if (sliderInput) sliderInput.style.display = 'none';
+
+    if (beforeInner) {
+      beforeInner.style.width = '100%';
+      beforeInner.innerHTML = `
+        <div class="relative w-full h-full bg-slate-900 flex flex-col">
+          <div class="px-3.5 py-2 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
+            <span class="font-bold flex items-center gap-1.5 text-rose-400">
+              <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+              Original: horizonlogisticslondon.com
+            </span>
+            <a href="https://horizonlogisticslondon.com/" target="_blank" rel="noopener" class="text-[11px] underline text-slate-300 hover:text-white flex items-center gap-1">Open Tab ↗</a>
+          </div>
+          <iframe src="https://horizonlogisticslondon.com/" class="w-full flex-1 min-h-[440px] border-0 bg-white" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+        </div>
+      `;
+    }
+
+    if (afterInner) {
+      afterInner.innerHTML = `
+        <div class="relative w-full h-full bg-slate-900 flex flex-col">
+          <div class="px-3.5 py-2 bg-slate-900 text-white flex items-center justify-between text-xs border-b border-slate-800 shrink-0">
+            <span class="font-bold flex items-center gap-1.5 text-emerald-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Redesign: horizonlogisticslondon.netlify.app
+            </span>
+            <a href="https://horizonlogisticslondon.netlify.app/" target="_blank" rel="noopener" class="text-[11px] underline text-emerald-300 hover:text-white flex items-center gap-1">Open Tab ↗</a>
+          </div>
+          <iframe src="https://horizonlogisticslondon.netlify.app/" class="w-full flex-1 min-h-[440px] border-0 bg-slate-950" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+        </div>
+      `;
+    }
+  } else {
+    // Desktop or Mobile Real Visual Slider Mode
+    if (comparisonState.viewMode === 'slider') {
+      if (container) container.classList.remove('is-side-by-side');
+      if (sliderHandle) sliderHandle.style.display = 'flex';
+      if (sliderInput) sliderInput.style.display = 'block';
+    }
+
+    // 3. Update Real Before Layer
+    if (beforeInner) {
+      beforeInner.innerHTML = `
+        <div class="relative w-full h-full bg-slate-900 select-none overflow-hidden group">
+          <img src="${data.beforeImage}" alt="Original Website: ${data.beforeUrl}" class="w-full h-full object-cover object-top select-none pointer-events-none block" />
+          <div class="absolute top-3.5 left-3.5 z-20 flex items-center gap-2">
+            <a href="${data.beforeUrl}" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-lg bg-rose-950/85 hover:bg-rose-900 text-white text-[11px] sm:text-xs font-bold backdrop-blur-md border border-rose-500/40 shadow-md flex items-center gap-1.5 transition-all">
+              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+              <span>Original Site (WordPress)</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+            </a>
+          </div>
+          <div class="absolute bottom-3 left-3.5 z-20 hidden sm:inline-flex px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-xs text-rose-300 text-[10px] font-mono border border-rose-500/30">
+            PageSpeed: 41 • 6.4s Load • Cluttered Layout
           </div>
         </div>
+      `;
+    }
 
-        <!-- Modern Clean Floating Card -->
-        <div class="md:col-span-5 bg-slate-50 border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
-          <div class="flex items-center justify-between text-xs pb-3 border-b border-slate-200">
-            <span class="text-slate-600 font-medium">${data.after.cardTitle}</span>
-            <span class="text-emerald-700 font-extrabold text-sm">${data.after.cardVal}</span>
+    // 4. Update Real After Layer
+    if (afterInner) {
+      afterInner.innerHTML = `
+        <div class="relative w-full h-full bg-slate-950 select-none overflow-hidden group">
+          <img src="${data.afterImage}" alt="WebTorq Redesign: ${data.liveUrl}" class="w-full h-full object-cover object-top select-none pointer-events-none block" />
+          <div class="absolute top-3.5 right-3.5 z-20 flex items-center gap-2">
+            <a href="${data.liveUrl}" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-lg bg-slate-900/90 hover:bg-slate-950 text-emerald-300 hover:text-white text-[11px] sm:text-xs font-bold backdrop-blur-md border border-emerald-500/40 shadow-md flex items-center gap-1.5 transition-all">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Live Netlify Redesign</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+            </a>
           </div>
-          <div class="space-y-2">
-            <div class="flex justify-between text-xs text-slate-600 font-medium">
-              <span>${data.after.cardMetricTitle}</span>
-              <span class="font-bold text-slate-900">${data.after.cardMetricVal}</span>
-            </div>
-            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-              <div class="bg-blue-600 h-full w-[88%] rounded-full"></div>
-            </div>
-          </div>
-          <div class="p-3 bg-white rounded-lg border border-slate-200 text-[11px] text-slate-600 flex items-center gap-2 shadow-2xs">
-            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-            <span>${data.after.cardFeature}</span>
+          <div class="absolute bottom-3 right-3.5 z-20 hidden sm:inline-flex px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-xs text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+            PageSpeed: 100 • 0.35s Load • GDP Compliant
           </div>
         </div>
-      </div>
-
-      <!-- Modern Clean Footer -->
-      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-        <span class="flex items-center gap-1.5 font-medium text-slate-700">
-          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i> ${data.after.trustBadge}
-        </span>
-        <span class="font-bold text-blue-700 uppercase tracking-wider text-[10px] bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">
-          ✨ WebTorq Transformation
-        </span>
-      </div>
-    `;
+      `;
+    }
   }
 
   // 5. Update Metrics Scorecards
@@ -511,7 +335,6 @@ function renderIndustry(key) {
   }
 
   // Resize inner content
-  const container = document.getElementById('comparisonContainer');
   if (beforeInner && container) {
     beforeInner.style.width = `${container.offsetWidth}px`;
   }

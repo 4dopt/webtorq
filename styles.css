@@ -166,19 +166,27 @@ code, pre, .font-mono, .badge-mono, .mono-data {
 .comparison-wrapper {
   position: relative;
   width: 100%;
+  height: 560px;
+  min-height: 480px;
   overflow: hidden;
+  user-select: none;
+  background: #0f172a;
   border-radius: 1rem;
   border: 1px solid #e2e8f0;
-  user-select: none;
-  background: #ffffff;
   box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
   transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .comparison-wrapper {
+    height: 600px;
+  }
 }
 
 .before-layer,
 .after-layer {
   width: 100%;
-  min-height: 540px;
+  height: 100%;
 }
 
 .before-layer {
@@ -196,7 +204,7 @@ code, pre, .font-mono, .badge-mono, .mono-data {
 
 .before-layer .inner-content {
   width: 100%;
-  min-height: 540px;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -277,11 +285,14 @@ code, pre, .font-mono, .badge-mono, .mono-data {
   gap: 16px;
   background: #f8fafc;
   padding: 16px;
+  height: auto !important;
+  min-height: auto !important;
 }
 
 .comparison-wrapper.is-side-by-side .before-layer {
   position: relative !important;
   width: 100% !important;
+  height: 480px !important;
   border-right: none !important;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -292,10 +303,12 @@ code, pre, .font-mono, .badge-mono, .mono-data {
 .comparison-wrapper.is-side-by-side .before-layer .inner-content {
   position: relative !important;
   width: 100% !important;
+  height: 100% !important;
 }
 
 .comparison-wrapper.is-side-by-side .after-layer {
   position: relative !important;
+  height: 480px !important;
   border-radius: 0.75rem;
   overflow: hidden;
   border: 1px solid #e2e8f0;
