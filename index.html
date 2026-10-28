@@ -1017,16 +1017,20 @@
         </p>
 
         <!-- Industry Case Study Switcher Tabs -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 border border-slate-200 max-w-xl mx-auto">
-          <button onclick="switchIndustry('corporate')" data-industry="corporate" class="industry-tab-btn flex-1 min-w-[140px] px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 bg-slate-900 text-white shadow-xs">
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 border border-slate-200 max-w-2xl mx-auto">
+          <button onclick="switchIndustry('horizon')" data-industry="horizon" class="industry-tab-btn flex-1 min-w-[150px] px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 bg-slate-900 text-white shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Horizon Logistics (Real)</span>
+          </button>
+          <button onclick="switchIndustry('corporate')" data-industry="corporate" class="industry-tab-btn flex-1 min-w-[130px] px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center gap-1.5">
             <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
             <span>Corporate M&A</span>
           </button>
-          <button onclick="switchIndustry('healthcare')" data-industry="healthcare" class="industry-tab-btn flex-1 min-w-[140px] px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center gap-2">
+          <button onclick="switchIndustry('healthcare')" data-industry="healthcare" class="industry-tab-btn flex-1 min-w-[130px] px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center gap-1.5">
             <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
             <span>Dental & Medical</span>
           </button>
-          <button onclick="switchIndustry('tech')" data-industry="tech" class="industry-tab-btn flex-1 min-w-[140px] px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center gap-2">
+          <button onclick="switchIndustry('tech')" data-industry="tech" class="industry-tab-btn flex-1 min-w-[130px] px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center gap-1.5">
             <i data-lucide="zap" class="w-3.5 h-3.5"></i>
             <span>Tech & B2B SaaS</span>
           </button>
@@ -1081,7 +1085,7 @@
             <div class="w-full max-w-lg mx-3 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-600 flex items-center justify-between shadow-inner">
               <span class="flex items-center gap-2 font-mono truncate">
                 <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-                <span id="comparisonBrowserUrl">https://sterling-advisory-group.com</span>
+                <span id="comparisonBrowserUrl">horizonlogisticslondon.com → horizonlogisticslondon.netlify.app</span>
               </span>
               <span id="comparisonSpeedBadge" class="hidden sm:inline-flex text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded border border-emerald-200 uppercase">
                 100 PageSpeed

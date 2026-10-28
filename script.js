@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 1. Interactive Before / After Comparison Slider Engine
 let comparisonState = {
-  currentIndustry: 'corporate',
+  currentIndustry: 'horizon',
   viewMode: 'slider', // 'slider' or 'side-by-side'
   autoScanActive: false,
   autoScanReqId: null,
@@ -28,6 +28,57 @@ let comparisonState = {
 };
 
 const comparisonData = {
+  horizon: {
+    name: 'Horizon Logistics London',
+    url: 'horizonlogisticslondon.com → horizonlogisticslondon.netlify.app',
+    liveUrl: 'https://horizonlogisticslondon.netlify.app/',
+    beforeUrl: 'https://horizonlogisticslondon.com/',
+    speedBadge: '100 PageSpeed • 0.35s Load',
+    securityBadge: 'GDP Compliant • Cold Chain A+',
+    before: {
+      marquee: '*** HORIZON LOGISTICS LONDON: TEMPERATURE CONTROL & SAME DAY COURIER ***',
+      logo: 'HORIZON LOGISTICS LONDON',
+      tagline: '"Trusted Transport & Logistics Company in London"',
+      nav: ['HOME', 'SERVICES', 'ABOUT_US', 'DRIVER_RECRUITMENT', 'CONTACT'],
+      alert: '⚠️ NOTICE: Call office between 9am-5pm or submit email form for delivery quotes (allow 24-48h).',
+      title: 'Professional Transport & Logistics Services in London to Strengthen Your Supply Chain',
+      body: 'We deliver freight solutions across London and the UK. For pallet distribution, contract transport, and temperature-controlled quotes, complete our 8-field contact inquiry form below and allow up to 48 hours for our team to review.',
+      btn: 'Visit Original Live Site (WordPress) ↗',
+      speedTag: 'Page Speed: 41/100 (6.4s) • Heavy WordPress / Elementor Bloat',
+      counter: '019,420',
+      year: '2018'
+    },
+    after: {
+      initials: 'H',
+      brand: 'Horizon Logistics',
+      accentWord: 'London',
+      nav: ['Cold Chain', 'Same Day Transit', 'Pallets & Freight', 'Driver Hub'],
+      pill: 'Real Client Redesign Case Study • Wembley, London',
+      title: 'Professional Transport & Temperature Controlled Logistics in London.',
+      body: 'From mission-critical chilled pharmaceuticals (-25°C to +25°C) and frozen food transport to rapid 30-60 min courier dispatch and nationwide road haulage. Backed by 50+ years of operational excellence.',
+      primaryBtn: 'Open Live Redesign ↗',
+      secondaryBtn: 'WhatsApp 24/7 Dispatch',
+      secondaryUrl: 'https://wa.me/447878569458',
+      cardTitle: 'Fleet Dispatch SLA',
+      cardVal: '30–60 Min Rapid Dispatch',
+      cardMetricTitle: 'Cold Chain Range',
+      cardMetricVal: '-25°C to +25°C Dual-Temp',
+      cardFeature: 'Real-time GPS tracking, GDP-compliant pharmaceuticals & instant WhatsApp dispatch',
+      trustBadge: '50+ Years Haulage Heritage • GDP Compliant • Wembley HA0 3FF'
+    },
+    metrics: {
+      speed: { before: '41/100 (6.4s)', after: '100/100 (0.35s)', diff: '⚡ 18x Faster' },
+      mobile: { before: 'Cluttered WP Layout', after: '1-Tap WhatsApp & Call', diff: '📱 +84% Mobile Inquiries' },
+      conversion: { before: '1.2% Inquiry Rate', after: '6.8% Quote Requests', diff: '📈 +460% Fast Quotes' },
+      security: { before: 'Outdated WP Plugins', after: 'Netlify Edge CDN + SSL', diff: '🛡️ 100% Zero Downtime' }
+    },
+    hotspots: [
+      { id: 1, top: '15%', left: '72%', title: 'Instant WhatsApp & 24/7 Dispatch', flaw: 'Before: Restricted 9am-5pm phone desk and delayed email form', upgrade: 'After: 1-click 24/7 WhatsApp dispatch to 07878 569458 & rapid quote modal' },
+      { id: 2, top: '42%', left: '26%', title: 'Specialized Cold Chain Focus', flaw: 'Before: Generic freight text burying cold chain capabilities', upgrade: 'After: Dual-temp (-25°C to +25°C) pharma & frozen food precision front and center' },
+      { id: 3, top: '48%', left: '78%', title: 'Live Dispatch SLA Card', flaw: 'Before: Zero turnaround commitments or transit time guarantees', upgrade: 'After: 30-60 min rapid transit guarantee with real-time GPS tracking proof' },
+      { id: 4, top: '85%', left: '30%', title: 'Frictionless Mobile-First Quote Engine', flaw: 'Before: Clunky 8-field WordPress Elementor form with 24-48h reply lag', upgrade: 'After: 45-second direct quote flow with instant dispatcher route matching' }
+    ]
+  },
   corporate: {
     name: 'Sterling Advisory Group',
     url: 'https://sterling-advisory-group.com',
@@ -241,7 +292,13 @@ function renderIndustry(key) {
 
   // 1. Update URL bar
   const urlDisplay = document.getElementById('comparisonBrowserUrl');
-  if (urlDisplay) urlDisplay.textContent = data.url;
+  if (urlDisplay) {
+    if (data.liveUrl) {
+      urlDisplay.innerHTML = `<a href="${data.liveUrl}" target="_blank" rel="noopener" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 truncate" title="View live redesign">${data.url} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-70"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>`;
+    } else {
+      urlDisplay.textContent = data.url;
+    }
+  }
 
   const speedBadgeDisplay = document.getElementById('comparisonSpeedBadge');
   if (speedBadgeDisplay) speedBadgeDisplay.textContent = data.speedBadge;
@@ -262,6 +319,7 @@ function renderIndustry(key) {
   const beforeInner = document.getElementById('beforeInnerContent');
   if (beforeInner) {
     const navLinks = data.before.nav.map(n => `<a href="#" onclick="return false;" class="text-blue-800 underline hover:text-blue-600">${n}</a>`).join(' &bull; ');
+    const beforeBtnAction = data.beforeUrl ? `window.open('${data.beforeUrl}', '_blank')` : `alert('Simulated legacy link: This PDF download was 4.2MB and took 14 seconds to load in 2011!')`;
     beforeInner.innerHTML = `
       <div>
         <div class="retro-marquee flex items-center justify-between">
@@ -293,7 +351,7 @@ function renderIndustry(key) {
         </p>
         
         <div class="pt-2 flex flex-wrap items-center gap-3">
-          <button class="retro-btn" onclick="alert('Simulated legacy link: This PDF download was 4.2MB and took 14 seconds to load in 2011!')">${data.before.btn}</button>
+          <button class="retro-btn" onclick="${beforeBtnAction}">${data.before.btn}</button>
           <span class="text-red-700 font-bold text-xs bg-red-50 px-2 py-0.5 border border-red-200 font-sans">
             ${data.before.speedTag}
           </span>
@@ -314,6 +372,8 @@ function renderIndustry(key) {
   const afterInner = document.getElementById('afterModernContent');
   if (afterInner) {
     const navItems = data.after.nav.map(n => `<span class="cursor-pointer hover:text-slate-900 transition-colors">${n}</span>`).join('');
+    const primaryBtnAction = data.liveUrl ? `window.open('${data.liveUrl}', '_blank')` : '';
+    const secondaryBtnAction = data.after.secondaryUrl ? `window.open('${data.after.secondaryUrl}', '_blank')` : '';
     afterInner.innerHTML = `
       <!-- Clean Modern Header -->
       <div class="flex items-center justify-between border-b border-slate-100 pb-4 sm:pb-5">
@@ -333,7 +393,7 @@ function renderIndustry(key) {
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
             ${data.speedBadge}
           </span>
-          <button class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-xs">
+          <button class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-xs" onclick="${primaryBtnAction}">
             Get Started
           </button>
         </div>
@@ -352,10 +412,10 @@ function renderIndustry(key) {
             ${data.after.body}
           </p>
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <button class="px-4 py-2.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-sm flex items-center gap-2">
+            <button class="px-4 py-2.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-blue-600 transition-colors shadow-sm flex items-center gap-2" onclick="${primaryBtnAction}">
               <span>${data.after.primaryBtn}</span>
             </button>
-            <button class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-100">
+            <button class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-100" onclick="${secondaryBtnAction}">
               ${data.after.secondaryBtn}
             </button>
           </div>
